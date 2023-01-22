@@ -1,4 +1,5 @@
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap"
+import { Container, Nav, Navbar } from "react-bootstrap"
+import { Link, NavLink } from 'react-router-dom'
 import CartWidget from "../CartWidget/CartWidget"
 import './NavBar.css'
 
@@ -6,21 +7,19 @@ const NavBar = () => {
     return (
         <>
             <Navbar bg="light" expand="lg">
-                <Container className="navegacion">
-                    <Navbar.Brand href="#home"><img src="/logo_SL.png" alt="empresa"/></Navbar.Brand>
+                <Container className="navegacion" >
+                    <NavLink to="/"><img src="/logo_SL.png" alt="empresa" /></NavLink>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="#">Home</Nav.Link>
-                            <Nav.Link href="#">Sobre Nosotros</Nav.Link>
-                            <NavDropdown title="Productos" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#">Juegos de Comedor</NavDropdown.Item>
-                                <NavDropdown.Item href="#">Juegos de Living</NavDropdown.Item>
-                                <NavDropdown.Item href="#">Muebles para Oficinas</NavDropdown.Item>
-                                <NavDropdown.Item href="#">Accesorios</NavDropdown.Item>
-                            </NavDropdown>
-                            <Nav.Link href="#">Contacto</Nav.Link>
-                            <CartWidget />
+                            <NavLink to="/">Home</NavLink>
+                            <NavLink to="/categoria/comedor">Juegos de Comedor</NavLink>
+                            <NavLink to="/categoria/living">Juegos de Living</NavLink>
+                            <NavLink to="/categoria/oficina">Muebles para Oficinas</NavLink>
+                            <NavLink to="/categoria/accesorio">Accesorios</NavLink>
+                            <Link to="/cart">
+                                <CartWidget />
+                            </Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

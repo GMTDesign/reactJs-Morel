@@ -1,5 +1,6 @@
 import { Container, Nav, Navbar } from "react-bootstrap"
 import { Link, NavLink } from 'react-router-dom'
+import Categories from "../../utilites/Categories"
 import CartWidget from "../CartWidget/CartWidget"
 import './NavBar.css'
 
@@ -13,10 +14,8 @@ const NavBar = () => {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
                             <NavLink to="/">Home</NavLink>
-                            <NavLink to="/categoria/comedor">Juegos de Comedor</NavLink>
-                            <NavLink to="/categoria/living">Juegos de Living</NavLink>
-                            <NavLink to="/categoria/oficina">Muebles para Oficinas</NavLink>
-                            <NavLink to="/categoria/accesorio">Accesorios</NavLink>
+                            {Categories.map(category => <NavLink key={category.id} to={`/categoria/${category.category}`}>{category.description}</NavLink>)}
+                            
                             <Link to="/cart">
                                 <CartWidget />
                             </Link>

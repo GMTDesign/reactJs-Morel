@@ -1,28 +1,27 @@
-import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 const ItemCount = ( { initial=1, stock=15, onAdd}) => {
-    const [contador, setContador] = useState(initial)
-    const manejoSuma = () =>{
-        if (contador < stock){
-            setContador(contador + 1)
+    const [counter, setCounter] = useState(initial)
+    const addHandle = () =>{
+        if (counter < stock){
+            setCounter(counter + 1)
         }
     }
-    const manejoResta = () =>{
-        if (contador > initial){
-            setContador(contador - 1)
+    const subHandle = () =>{
+        if (counter > initial){
+            setCounter(counter - 1)
         }
     }
-    const manejoOnAdd = () =>{
-        onAdd(contador)
+    const onAddHandle = () =>{
+        onAdd(counter)
     }
     return(
         <div className='container-fluid col-6'>
             <div>
-                <Button variant="outline-primary m-2 w-25" onClick={manejoSuma}>+</Button>
-                <label>{contador}</label>
-                <Button variant="outline-primary m-2 w-25" onClick={manejoResta}>-</Button>
-            <Button variant="outline-primary m-2 w-250" onClick={manejoOnAdd}>Agregar al Carrito</Button>
+                <Button variant="outline-primary m-2 w-25" onClick={addHandle}>+</Button>
+                <label>{counter}</label>
+                <Button variant="outline-primary m-2 w-25" onClick={subHandle}>-</Button>
+                <Button variant="outline-primary m-2 w-250" onClick={onAddHandle}>Agregar al Carrito</Button>
             </div>
         </div>
     )
